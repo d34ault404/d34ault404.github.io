@@ -17,7 +17,7 @@
     }
 
     body {
-      /* Dark base with subtle purple ambient glow */
+      /* Dark base with purple ambient glow */
       background: radial-gradient(circle at center, #130a1a 0%, #08080a 70%, #000000 100%);
       color: #ffffff;
       font-family: 'Inter', sans-serif;
@@ -37,7 +37,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.5; /* Keeps rain crisp but readable */
+      opacity: 0.5;
     }
 
     .container {
@@ -48,7 +48,7 @@
       position: relative;
     }
 
-    /* Fixed Banner Box (Neon Purple Glow Border) */
+    /* Banner Box (Neon Purple Glow Border) */
     .avatar-wrapper {
       width: 100%;
       max-width: 220px;
@@ -175,7 +175,7 @@
     </footer>
   </div>
 
-  <!-- Glitching Digital Code Rain Script -->
+  <!-- True Vertical Single Character Code Rain Script -->
   <script>
     const canvas = document.getElementById('rain-canvas');
     const ctx = canvas.getContext('2d');
@@ -187,37 +187,41 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Words & Glitch Tokens
-    const words = ["404", "ERROR", "DEFAULT", "D34AULT", "01", "404", "FAIL", "SYSTEM", "GLITCH"];
-    const fontSize = 14;
-    const columns = Math.floor(window.innerWidth / 30);
+    // Characters sourced directly from your branding words
+    const charPool = "D34AULT404ERRORDEFAULTGLITCHSYSTEM01";
+    const chars = charPool.split('');
+
+    const fontSize = 16;
+    const columns = Math.floor(window.innerWidth / fontSize);
 
     const drops = [];
     for (let x = 0; x < columns; x++) {
-      drops[x] = Math.random() * -100;
+      drops[x] = Math.floor(Math.random() * -50);
     }
 
     function drawRain() {
-      // Trail effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+      // Trail effect fade
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.font = fontSize + 'px monospace';
 
       for (let i = 0; i < drops.length; i++) {
-        const text = words[Math.floor(Math.random() * words.length)];
-        const x = i * 30;
+        // Pick a single character
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        const x = i * fontSize;
         const y = drops[i] * fontSize;
 
-        // Glitch chance: 5% chance a word flashes cyan/white glitch color
-        if (Math.random() < 0.05) {
-          ctx.fillStyle = '#00ffff'; // Glitch cyan pulse
+        // 4% chance a character glitches in neon cyan/white
+        if (Math.random() < 0.04) {
+          ctx.fillStyle = '#00ffff';
         } else {
-          ctx.fillStyle = '#00ff66'; // Standard Matrix green
+          ctx.fillStyle = '#00ff66';
         }
 
-        ctx.fillText(text, x, y);
+        ctx.fillText(char, x, y);
 
+        // Reset column back to top once off-screen
         if (y > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
         }
@@ -226,7 +230,7 @@
       }
     }
 
-    setInterval(drawRain, 40);
+    setInterval(drawRain, 33);
   </script>
 
 </body>
