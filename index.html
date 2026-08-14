@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D34AULT404 | Links</title>
+  
+  <!-- Font Awesome Icons & Google Font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0b0c10;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    /* Avatar Glow Effect */
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid #ff2a2a;
+      box-shadow: 0 0 15px rgba(255, 42, 42, 0.5);
+      margin-bottom: 12px;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: #888899;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    /* Links Stack */
+    .links-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: all 0.25s ease;
+    }
+
+    /* Hover States */
+    .link-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 42, 42, 0.15);
+      border-color: #ff2a2a;
+      box-shadow: 0 5px 15px rgba(255, 42, 42, 0.3);
+    }
+
+    .link-card i {
+      font-size: 1.3rem;
+    }
+
+    /* Individual Brand Colors on Hover */
+    .link-card.twitch:hover { border-color: #9146ff; box-shadow: 0 5px 15px rgba(145, 70, 255, 0.3); background: rgba(145, 70, 255, 0.15); }
+    .link-card.youtube:hover { border-color: #ff0000; box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3); background: rgba(255, 0, 0, 0.15); }
+    .link-card.tiktok:hover { border-color: #00f2fe; box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3); background: rgba(0, 242, 254, 0.15); }
+    .link-card.discord:hover { border-color: #5865f2; box-shadow: 0 5px 15px rgba(88, 101, 242, 0.3); background: rgba(88, 101, 242, 0.15); }
+    .link-card.steam:hover { border-color: #171a21; box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: #555566;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Profile Avatar (Replace image URL with your avatar link or local image) -->
+    <img src="https://via.placeholder.com/150" alt="D34AULT404" class="avatar">
+    
+    <h1>D34AULT404</h1>
+    <p class="subtitle">Content Creator & Streamer</p>
+
+    <div class="links-wrapper">
+      <a href="https://www.twitch.tv/d34ault404" target="_blank" class="link-card twitch">
+        <i class="fa-brands fa-twitch"></i> Twitch
+      </a>
+
+      <a href="https://youtube.com/@d34ault404" target="_blank" class="link-card youtube">
+        <i class="fa-brands fa-youtube"></i> YouTube
+      </a>
+
+      <a href="https://www.tiktok.com/@d34ault404" target="_blank" class="link-card tiktok">
+        <i class="fa-brands fa-tiktok"></i> TikTok
+      </a>
+
+      <a href="#" target="_blank" class="link-card discord">
+        <i class="fa-brands fa-discord"></i> Discord Community
+      </a>
+
+      <a href="https://steamcommunity.com/profiles/76561198350190349/" target="_blank" class="link-card steam">
+        <i class="fa-brands fa-steam"></i> Steam Profile
+      </a>
+    </div>
+
+    <footer>
+      &copy; D34AULT404
+    </footer>
+  </div>
+
+</body>
+</html>
