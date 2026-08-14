@@ -1,4 +1,4 @@
-# 🌐 D34AULT404 — Official Link Hub
+# 🌐 D34AULT404 - Official Link Hub
 
 Welcome to the source code for my personal link hub and landing page, hosted using GitHub Pages.
 
@@ -16,12 +16,12 @@ Instead of relying on third-party link services, this project allows complete co
 
 ## 🛠️ Built With
 
-* **HTML5** — Page structure & content
-* **CSS3** — Custom styling, glassmorphism UI, neon glow accents, and hover states
+* **HTML5** - Page structure & content
+* **CSS3** - Custom styling, glassmorphism UI, neon glow accents, and hover states
 * **JavaScript (HTML5 Canvas)** — Animated Matrix-style digital code rain with dynamic red glitch pulses
-* **Font Awesome** — Platform social icons
-* **Google Fonts** — Modern typography (*Rajdhani* & *Inter*)
-* **GitHub Pages** — Free static site hosting
+* **Font Awesome** - Platform social icons
+* **Google Fonts** - Modern typography (*Rajdhani* & *Inter*)
+* **GitHub Pages** - Free static site hosting
 
 ---
 
