@@ -209,9 +209,9 @@
         const x = i * 30;
         const y = drops[i] * fontSize;
 
-        // Glitch chance: 5% chance a word flashes cyan/white glitch color
+        // Glitch chance: 5% chance a word flashes red glitch color
         if (Math.random() < 0.05) {
-          ctx.fillStyle = '#00ffff'; // Glitch cyan pulse
+          ctx.fillStyle = '#ff0033'; // Glitch red pulse
         } else {
           ctx.fillStyle = '#00ff66'; // Standard Matrix green
         }
