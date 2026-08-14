@@ -17,7 +17,7 @@
     }
 
     body {
-      /* Dark base with purple ambient glow */
+      /* Dark base with subtle purple ambient glow */
       background: radial-gradient(circle at center, #130a1a 0%, #08080a 70%, #000000 100%);
       color: #ffffff;
       font-family: 'Inter', sans-serif;
@@ -29,7 +29,7 @@
       overflow: hidden;
     }
 
-    /* Green & Blue Digital Rain Canvas Background */
+    /* Green Digital Rain Canvas Background */
     #rain-canvas {
       position: fixed;
       top: 0;
@@ -37,7 +37,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.6;
+      opacity: 0.5; /* Keeps rain crisp but readable */
     }
 
     .container {
@@ -48,7 +48,7 @@
       position: relative;
     }
 
-    /* Banner Box (Neon Purple Glow Border) */
+    /* Fixed Banner Box (Neon Purple Glow Border) */
     .avatar-wrapper {
       width: 100%;
       max-width: 220px;
@@ -175,7 +175,7 @@
     </footer>
   </div>
 
-  <!-- Vertical Word-Stream Rain Script with Blue Glitch Pattern -->
+  <!-- Glitching Digital Code Rain Script -->
   <script>
     const canvas = document.getElementById('rain-canvas');
     const ctx = canvas.getContext('2d');
@@ -187,64 +187,42 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Target brand words that fall vertically in sequence
-    const wordList = ["D34AULT", "404", "DEFAULT", "ERROR", "SYSTEM", "GLITCH"];
-    const fontSize = 16;
-    const columns = Math.floor(window.innerWidth / 22);
+    // Words & Glitch Tokens
+    const words = ["404", "ERROR", "DEFAULT", "D34AULT", "01", "404", "FAIL", "SYSTEM", "GLITCH"];
+    const fontSize = 14;
+    const columns = Math.floor(window.innerWidth / 30);
 
-    // Column tracking objects
-    const columnData = [];
-    for (let i = 0; i < columns; i++) {
-      columnData.push({
-        y: Math.floor(Math.random() * -40),
-        wordIndex: Math.floor(Math.random() * wordList.length),
-        charIndex: 0,
-        isGlitched: Math.random() < 0.25 // 25% chance column triggers blue glitch
-      });
+    const drops = [];
+    for (let x = 0; x < columns; x++) {
+      drops[x] = Math.random() * -100;
     }
 
     function drawRain() {
-      // Trail effect fade
+      // Trail effect
       ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = '700 ' + fontSize + 'px monospace';
+      ctx.font = fontSize + 'px monospace';
 
-      for (let i = 0; i < columns; i++) {
-        const col = columnData[i];
-        const currentWord = wordList[col.wordIndex];
-        const char = currentWord[col.charIndex];
+      for (let i = 0; i < drops.length; i++) {
+        const text = words[Math.floor(Math.random() * words.length)];
+        const x = i * 30;
+        const y = drops[i] * fontSize;
 
-        const x = i * 22;
-        const y = col.y * fontSize;
-
-        // Color selection: Electric Blue for Glitch patterns, Glowing Green otherwise
-        if (col.isGlitched) {
-          ctx.fillStyle = '#00d8ff'; // Electric blue highlight
-          ctx.shadowColor = '#00d8ff';
-          ctx.shadowBlur = 8;
+        // Glitch chance: 5% chance a word flashes cyan/white glitch color
+        if (Math.random() < 0.05) {
+          ctx.fillStyle = '#00ffff'; // Glitch cyan pulse
         } else {
           ctx.fillStyle = '#00ff66'; // Standard Matrix green
-          ctx.shadowColor = 'transparent';
-          ctx.shadowBlur = 0;
         }
 
-        ctx.fillText(char, x, y);
+        ctx.fillText(text, x, y);
 
-        // Advance character within current word
-        col.charIndex++;
-        if (col.charIndex >= currentWord.length) {
-          col.charIndex = 0;
-          col.wordIndex = (col.wordIndex + 1) % wordList.length; // Move to next word in sequence
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
         }
 
-        // Reset column to top once off screen
-        if (y > canvas.height && Math.random() > 0.95) {
-          col.y = 0;
-          col.isGlitched = Math.random() < 0.3; // Re-roll blue glitch pattern
-        }
-
-        col.y++;
+        drops[i]++;
       }
     }
 
