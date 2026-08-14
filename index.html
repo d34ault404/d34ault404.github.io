@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D34AULT404 | Links</title>
+  <title>D34AULT404</title>
   
-  <!-- Font Awesome Icons & Google Fonts -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Google Font: Rajdhani for the name, Inter for links -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -17,152 +19,144 @@
     }
 
     body {
-      /* Cool animated radial glow background */
-      background: radial-gradient(circle at center, #1b0a0a 0%, #08080a 70%, #000000 100%);
+      background-color: #000000; /* Base background */
       color: #ffffff;
       font-family: 'Inter', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px;
-      overflow-x: hidden;
+      padding: 24px 16px;
+      overflow: hidden; /* Important for the background canvas */
     }
 
-    /* Ambient background glow */
-    body::before {
-      content: '';
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: rgba(255, 42, 42, 0.15);
-      filter: blur(120px);
-      border-radius: 50%;
-      z-index: -1;
+    /* --- The Animated Green Rain Background --- */
+    #rain-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Puts it behind everything */
+      opacity: 0.8; /* Subtle transparency */
     }
 
+    /* --- Central Hub Container (Your previous structure) --- */
     .container {
       width: 100%;
-      max-width: 420px;
+      max-width: 380px;
       text-align: center;
-      z-index: 1;
+      z-index: 1; /* Puts the hub in front */
+      padding: 20px;
+      /* Optional: Adds a very slight translucent glow effect for depth */
+      /* border: 1px solid rgba(0, 255, 0, 0.1); */
     }
 
-    /* Fixed Banner/Avatar Container - Holds wide images without squishing */
-    .avatar-wrapper {
-      width: 100%;
-      max-width: 220px;
-      margin: 0 auto 16px auto;
-      border-radius: 12px;
-      padding: 4px;
-      background: linear-gradient(135deg, #ff2a2a, rgba(255, 42, 42, 0.2));
-      box-shadow: 0 0 25px rgba(255, 42, 42, 0.35);
-      transition: transform 0.3s ease;
-    }
-
-    .avatar-wrapper:hover {
-      transform: scale(1.03);
-    }
-
+    /* Clean Circular Profile Avatar with a subtle glow */
     .avatar {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      display: block;
-      object-fit: contain;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #ff0000; /* Red border you like */
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+      margin-bottom: 16px;
+      object-fit: cover;
     }
 
     h1 {
       font-family: 'Rajdhani', sans-serif;
-      font-size: 2.2rem;
-      letter-spacing: 3px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: #ffffff;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
       margin-bottom: 4px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
     .subtitle {
-      color: #8a8a99;
-      font-size: 0.95rem;
+      color: #9ca3af;
+      font-size: 0.9rem;
       margin-bottom: 28px;
-      font-weight: 500;
     }
 
-    /* Links Stack */
+    /* Clean Links Stack (Glassmorphism Effect) */
     .links-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .link-card {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      background: rgba(20, 20, 25, 0.6);
+      gap: 10px;
+      /* Sleek dark glass effect that shows the background */
+      background: rgba(20, 20, 25, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       color: #ffffff;
       text-decoration: none;
-      padding: 16px 20px;
+      padding: 15px 20px;
       border-radius: 12px;
-      font-weight: 600;
-      font-size: 1.05rem;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover State (Neon green/red glow) */
+    .link-card:hover {
+      background: rgba(20, 20, 25, 0.9);
+      border-color: #00ff00; /* Green highlight on hover */
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+      transform: translateY(-2px);
     }
 
     .link-card i {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
-
-    /* Individual Brand Colors on Hover */
-    .link-card.twitch:hover { border-color: #9146ff; box-shadow: 0 0 20px rgba(145, 70, 255, 0.4); background: rgba(145, 70, 255, 0.15); transform: translateY(-3px); }
-    .link-card.youtube:hover { border-color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); background: rgba(255, 0, 0, 0.15); transform: translateY(-3px); }
-    .link-card.tiktok:hover { border-color: #00f2fe; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); background: rgba(0, 242, 254, 0.15); transform: translateY(-3px); }
-    .link-card.discord:hover { border-color: #5865f2; box-shadow: 0 0 20px rgba(88, 101, 242, 0.4); background: rgba(88, 101, 242, 0.15); transform: translateY(-3px); }
-    .link-card.steam:hover { border-color: #ffffff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.12); transform: translateY(-3px); }
 
     footer {
       margin-top: 36px;
-      font-size: 0.8rem;
-      color: #444455;
-      letter-spacing: 1px;
+      font-size: 0.75rem;
+      color: #6b7280;
     }
   </style>
 </head>
 <body>
 
+  <!-- Background Canvas for the Green Rain -->
+  <canvas id="rain-canvas"></canvas>
+
+  <!-- The Actual Link Hub -->
   <div class="container">
-    <!-- Updated Banner Box (keeps image ratio clean) -->
-    <div class="avatar-wrapper">
-      <img src="https://raw.githubusercontent.com/d34ault404/d34ault404.github.io/main/banner.png" alt="D34AULT404 Logo" class="avatar" onerror="this.src='https://via.placeholder.com/220x80/111/ff2a2a?text=D34AULT404'">
-    </div>
+    <!-- Red glowing profile avatar -->
+    <img src="https://via.placeholder.com/150/ff0000/ffffff?text=404" alt="D34AULT404 Profile" class="avatar">
     
     <h1>D34AULT404</h1>
-    <p class="subtitle">Content Creator & Streamer</p>
+    <p class="subtitle">Streamer & Content Creator</p>
 
     <div class="links-wrapper">
-      <a href="https://www.twitch.tv/d34ault404" target="_blank" class="link-card twitch">
-        <i class="fa-brands fa-twitch"></i> Twitch
+      <a href="https://www.twitch.tv/d34ault404" target="_blank" class="link-card">
+        <i class="fa-brands fa-twitch" style="color: #a855f7;"></i> Twitch
       </a>
 
-      <a href="https://youtube.com/@d34ault404" target="_blank" class="link-card youtube">
-        <i class="fa-brands fa-youtube"></i> YouTube
+      <a href="https://youtube.com/@d34ault404" target="_blank" class="link-card">
+        <i class="fa-brands fa-youtube" style="color: #ef4444;"></i> YouTube
       </a>
 
-      <a href="https://www.tiktok.com/@d34ault404" target="_blank" class="link-card tiktok">
-        <i class="fa-brands fa-tiktok"></i> TikTok
+      <a href="https://www.tiktok.com/@d34ault404" target="_blank" class="link-card">
+        <i class="fa-brands fa-tiktok" style="color: #06b6d4;"></i> TikTok
       </a>
 
-      <a href="https://discord.gg/89XEFrEqr" target="_blank" class="link-card discord">
-        <i class="fa-brands fa-discord"></i> Discord Community
+      <a href="https://discord.gg/89XEFrEqr" target="_blank" class="link-card">
+        <i class="fa-brands fa-discord" style="color: #6366f1;"></i> Discord Community
       </a>
 
-      <a href="https://steamcommunity.com/profiles/76561198350190349/" target="_blank" class="link-card steam">
-        <i class="fa-brands fa-steam"></i> Steam Profile
+      <a href="https://steamcommunity.com/profiles/76561198350190349/" target="_blank" class="link-card">
+        <i class="fa-brands fa-steam" style="color: #94a3b8;"></i> Steam Profile
       </a>
     </div>
 
@@ -170,6 +164,57 @@
       &copy; D34AULT404
     </footer>
   </div>
+
+  <!-- --- The Animated Green Rain JavaScript --- -->
+  <script>
+    const canvas = document.getElementById('rain-canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Make the canvas full-screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Set the characters to fall
+    const chars = "D34AULT404ERROR404ERROR";
+    const charArray = chars.split('');
+
+    const fontSize = 16;
+    const columns = canvas.width / fontSize; // number of columns for the rain
+
+    const drops = [];
+    // Initialize the starting positions of the drops
+    for (let x = 0; x < columns; x++) {
+      drops[x] = 1;
+    }
+
+    function drawRain() {
+      // Background with faint black rectangle to create trails
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0F0'; // Neon Green
+      ctx.font = fontSize + 'px monospace';
+
+      // Loop over drops
+      for (let i = 0; i < drops.length; i++) {
+        // A random character to draw
+        const text = charArray[Math.floor(Math.random() * charArray.length)];
+        // x = i*fontSize, y = drops[i]*fontSize
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Sending the drop back to the top randomly after it has crossed the screen
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        // Incrementing Y coordinate
+        drops[i]++;
+      }
+    }
+
+    // Call the function repeatedly
+    setInterval(drawRain, 35);
+  </script>
 
 </body>
 </html>
