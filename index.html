@@ -40,7 +40,6 @@
     }
 
     body {
-      /* Dark base with subtle purple ambient glow */
       background: radial-gradient(circle at center, #130a1a 0%, #08080a 70%, #000000 100%);
       color: #ffffff;
       font-family: 'Inter', sans-serif;
@@ -52,7 +51,6 @@
       overflow: hidden;
     }
 
-    /* Green Digital Rain Canvas Background */
     #rain-canvas {
       position: fixed;
       top: 0;
@@ -60,7 +58,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.5; /* Keeps rain crisp but readable */
+      opacity: 0.5;
     }
 
     .container {
@@ -71,7 +69,6 @@
       position: relative;
     }
 
-    /* Fixed Banner Box (Neon Purple Glow Border) */
     .avatar-wrapper {
       width: 100%;
       max-width: 220px;
@@ -113,7 +110,6 @@
       font-weight: 500;
     }
 
-    /* Links Stack */
     .links-wrapper {
       display: flex;
       flex-direction: column;
@@ -142,7 +138,6 @@
       font-size: 1.3rem;
     }
 
-    /* Individual Brand Colors on Hover */
     .link-card.twitch:hover { border-color: #9146ff; box-shadow: 0 0 20px rgba(145, 70, 255, 0.4); background: rgba(145, 70, 255, 0.15); transform: translateY(-3px); }
     .link-card.youtube:hover { border-color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); background: rgba(255, 0, 0, 0.15); transform: translateY(-3px); }
     .link-card.tiktok:hover { border-color: #00f2fe; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); background: rgba(0, 242, 254, 0.15); transform: translateY(-3px); }
@@ -159,13 +154,11 @@
 </head>
 <body>
 
-  <!-- Rain Canvas -->
   <canvas id="rain-canvas"></canvas>
 
   <div class="container">
-    <!-- Neon Purple Banner Wrapper -->
     <div class="avatar-wrapper">
-      <img src="https://raw.githubusercontent.com/d34ault404/d34ault404.github.io/main/banner.png" alt="D34AULT404 Logo" class="avatar" onerror="this.src='https://via.placeholder.com/220x80/111/a855f7?text=D34AULT404'">
+      <img src="banner.png" alt="D34AULT404 Logo" class="avatar">
     </div>
     
     <h1>D34AULT404</h1>
@@ -198,7 +191,6 @@
     </footer>
   </div>
 
-  <!-- Glitching Digital Code Rain Script -->
   <script>
     const canvas = document.getElementById('rain-canvas');
     const ctx = canvas.getContext('2d');
@@ -210,7 +202,6 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Words & Glitch Tokens
     const words = ["404", "ERROR", "DEFAULT", "D34AULT", "01", "404", "FAIL", "SYSTEM", "GLITCH"];
     const fontSize = 14;
     const columns = Math.floor(window.innerWidth / 30);
@@ -221,7 +212,6 @@
     }
 
     function drawRain() {
-      // Trail effect
       ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -232,11 +222,10 @@
         const x = i * 30;
         const y = drops[i] * fontSize;
 
-        // Glitch chance: 5% chance a word flashes red glitch color
         if (Math.random() < 0.05) {
-          ctx.fillStyle = '#ff0033'; // Glitch red pulse
+          ctx.fillStyle = '#ff0033';
         } else {
-          ctx.fillStyle = '#00ff66'; // Standard Matrix green
+          ctx.fillStyle = '#00ff66';
         }
 
         ctx.fillText(text, x, y);
