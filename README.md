@@ -18,7 +18,7 @@ Instead of relying on third-party link services, this project allows complete co
 
 * **HTML5** - Page structure & content
 * **CSS3** - Custom styling, glassmorphism UI, neon glow accents, and hover states
-* **JavaScript (HTML5 Canvas)** — Animated Matrix-style digital code rain with dynamic red glitch pulses
+* **JavaScript (HTML5 Canvas)** - Animated Matrix-style digital code rain with dynamic red glitch pulses
 * **Font Awesome** - Platform social icons
 * **Google Fonts** - Modern typography (*Rajdhani* & *Inter*)
 * **GitHub Pages** - Free static site hosting
