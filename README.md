@@ -27,11 +27,11 @@ Instead of relying on third-party link services, this project allows complete co
 
 ## 📲 Social Links Included
 
-* 🎮 **Twitch**
-* 📺 **YouTube**
-* 🎵 **TikTok**
-* 💬 **Discord Community**
-* 🎮 **Steam Profile**
+* 🎮 **Twitch:** [twitch.tv/d34ault404](https://www.twitch.tv/d34ault404)
+* 📺 **YouTube:** [youtube.com/@d34ault404](https://youtube.com/@d34ault404)
+* 🎵 **TikTok:** [tiktok.com/@d34ault404](https://www.tiktok.com/@d34ault404)
+* 💬 **Discord Community:** [discord.gg/89XEFrEqr](https://discord.gg/89XEFrEqr)
+* 🎮 **Steam Profile:** [steamcommunity.com](https://steamcommunity.com/profiles/76561198350190349/)
 
 ---
 
