@@ -17,7 +17,7 @@
     }
 
     body {
-      /* Original dark base with purple ambient glow */
+      /* Dark base with purple ambient glow */
       background: radial-gradient(circle at center, #130a1a 0%, #08080a 70%, #000000 100%);
       color: #ffffff;
       font-family: 'Inter', sans-serif;
@@ -48,7 +48,7 @@
       position: relative;
     }
 
-    /* Original Banner Box (Neon Purple Glow Border) */
+    /* Banner Box (Neon Purple Glow Border) */
     .avatar-wrapper {
       width: 100%;
       max-width: 220px;
@@ -217,7 +217,7 @@
         const isTargetWord = ["DEFAULT", "404", "ERROR"].includes(drop.word);
         const isGlitchActive = (isTargetWord && Math.random() < 0.22) || (Math.sin(i + wavePattern * 5) > 0.85);
 
-        // Highlight turned RED (#ff0033) instead of blue (#00d8ff)
+        // High visibility effect changed to neon red
         if (isGlitchActive) {
           ctx.fillStyle = '#ff0033';
           ctx.shadowColor = '#ff0033';
