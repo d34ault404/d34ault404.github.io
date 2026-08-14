@@ -17,8 +17,8 @@
     }
 
     body {
-      /* Dark base with radial ambient glow */
-      background: radial-gradient(circle at center, #1b0a0a 0%, #08080a 70%, #000000 100%);
+      /* Dark base with subtle purple ambient glow */
+      background: radial-gradient(circle at center, #130a1a 0%, #08080a 70%, #000000 100%);
       color: #ffffff;
       font-family: 'Inter', sans-serif;
       display: flex;
@@ -37,31 +37,32 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.45; /* Keeps the rain subtle behind your card */
+      opacity: 0.5; /* Keeps rain crisp but readable */
     }
 
     .container {
       width: 100%;
       max-width: 420px;
       text-align: center;
-      z-index: 1; /* Sits above canvas */
+      z-index: 1;
       position: relative;
     }
 
-    /* Fixed Banner Box (Red Glow Border) */
+    /* Fixed Banner Box (Neon Purple Glow Border) */
     .avatar-wrapper {
       width: 100%;
       max-width: 220px;
       margin: 0 auto 16px auto;
       border-radius: 12px;
       padding: 4px;
-      background: linear-gradient(135deg, #ff2a2a, rgba(255, 42, 42, 0.2));
-      box-shadow: 0 0 25px rgba(255, 42, 42, 0.35);
-      transition: transform 0.3s ease;
+      background: linear-gradient(135deg, #a855f7, rgba(168, 85, 247, 0.2));
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.45);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .avatar-wrapper:hover {
       transform: scale(1.03);
+      box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
     }
 
     .avatar {
@@ -78,7 +79,7 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: #ffffff;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      text-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
       margin-bottom: 4px;
     }
 
@@ -101,7 +102,7 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      background: rgba(20, 20, 25, 0.75);
+      background: rgba(20, 20, 25, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -128,7 +129,7 @@
     footer {
       margin-top: 36px;
       font-size: 0.8rem;
-      color: #444455;
+      color: #555566;
       letter-spacing: 1px;
     }
   </style>
@@ -139,9 +140,9 @@
   <canvas id="rain-canvas"></canvas>
 
   <div class="container">
-    <!-- Red Banner / Avatar Wrapper -->
+    <!-- Neon Purple Banner Wrapper -->
     <div class="avatar-wrapper">
-      <img src="https://raw.githubusercontent.com/d34ault404/d34ault404.github.io/main/banner.png" alt="D34AULT404 Logo" class="avatar" onerror="this.src='https://via.placeholder.com/220x80/111/ff2a2a?text=D34AULT404'">
+      <img src="https://raw.githubusercontent.com/d34ault404/d34ault404.github.io/main/banner.png" alt="D34AULT404 Logo" class="avatar" onerror="this.src='https://via.placeholder.com/220x80/111/a855f7?text=D34AULT404'">
     </div>
     
     <h1>D34AULT404</h1>
@@ -174,7 +175,7 @@
     </footer>
   </div>
 
-  <!-- Custom Word Digital Rain Script -->
+  <!-- Glitching Digital Code Rain Script -->
   <script>
     const canvas = document.getElementById('rain-canvas');
     const ctx = canvas.getContext('2d');
@@ -186,29 +187,34 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Rain drop words
-    const words = ["404", "ERROR", "DEFAULT", "D34AULT", "01", "404", "FAIL", "SYSTEM"];
+    // Words & Glitch Tokens
+    const words = ["404", "ERROR", "DEFAULT", "D34AULT", "01", "404", "FAIL", "SYSTEM", "GLITCH"];
     const fontSize = 14;
-    const columns = Math.floor(window.innerWidth / 30); // Column spacing
+    const columns = Math.floor(window.innerWidth / 30);
 
     const drops = [];
     for (let x = 0; x < columns; x++) {
-      drops[x] = Math.random() * -100; // Offset start positions
+      drops[x] = Math.random() * -100;
     }
 
     function drawRain() {
-      // Fade effect to create trailing code
+      // Trail effect
       ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#00ff66'; // Glowing Matrix green
       ctx.font = fontSize + 'px monospace';
 
       for (let i = 0; i < drops.length; i++) {
-        // Pick random word from list
         const text = words[Math.floor(Math.random() * words.length)];
         const x = i * 30;
         const y = drops[i] * fontSize;
+
+        // Glitch chance: 5% chance a word flashes cyan/white glitch color
+        if (Math.random() < 0.05) {
+          ctx.fillStyle = '#00ffff'; // Glitch cyan pulse
+        } else {
+          ctx.fillStyle = '#00ff66'; // Standard Matrix green
+        }
 
         ctx.fillText(text, x, y);
 
