@@ -73,7 +73,7 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      padding: 32px 24px;
+      padding: 36px 24px;
       border-radius: 20px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     }
@@ -115,7 +115,7 @@
     .subtitle {
       color: #8a8a99;
       font-size: 0.95rem;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       font-weight: 500;
     }
 
@@ -153,48 +153,8 @@
     .link-card.discord:hover { border-color: #5865f2; box-shadow: 0 0 20px rgba(88, 101, 242, 0.4); background: rgba(88, 101, 242, 0.15); transform: translateY(-3px); }
     .link-card.steam:hover { border-color: #ffffff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.12); transform: translateY(-3px); }
 
-    /* Games Showcase Section */
-    .games-container {
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .games-title {
-      font-size: 0.8rem;
-      color: #a855f7;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .games-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      justify-content: center;
-    }
-
-    .game-tag {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      color: #d4d4d8;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .game-tag:hover {
-      border-color: #a855f7;
-      color: #ffffff;
-      background: rgba(168, 85, 247, 0.15);
-    }
-
     footer {
-      margin-top: 28px;
+      margin-top: 32px;
       font-size: 0.8rem;
       color: #555566;
       letter-spacing: 1px;
@@ -235,23 +195,6 @@
       </a>
     </div>
 
-    <!-- Featured Games Section -->
-    <div class="games-container">
-      <div class="games-title">Featured Games</div>
-      <div class="games-tags">
-        <span class="game-tag">PUBG</span>
-        <span class="game-tag">Elden Ring</span>
-        <span class="game-tag">DayZ</span>
-        <span class="game-tag">Red Dead II</span>
-        <span class="game-tag">The Witcher 3</span>
-        <span class="game-tag">Dota 2</span>
-        <span class="game-tag">Ghost of Tsushima</span>
-        <span class="game-tag">Once Human</span>
-        <span class="game-tag">GTA V</span>
-        <span class="game-tag">God of War</span>
-      </div>
-    </div>
-
     <footer>
       &copy; D34AULT404
     </footer>
@@ -268,11 +211,15 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Rain word pool including glitch terms and your favorite games
+    // Exact word pool taking titles directly from your Steam library list
     const words = [
       "404", "ERROR", "DEFAULT", "D34AULT", "01", "FAIL", "SYSTEM", "GLITCH",
-      "PUBG", "ELDEN RING", "DAYZ", "RED DEAD", "WITCHER 3", "DOTA 2", 
-      "TSUSHIMA", "ONCE HUMAN", "GTA V", "GOD OF WAR", "CITIES SKYLINES"
+      "CS2", "DOTA 2", "THE ISLE", "TLOU II", "PUBG", "AC VALHALLA",
+      "CALL OF DUTY", "CITIES SKYLINES II", "DAYZ", "ELDEN RING", "FINAL FANTASY XVI",
+      "GHOST OF TSUSHIMA", "GTA V", "GUILD WARS 2", "TLOU PART I", "ONCE HUMAN",
+      "RED DEAD ONLINE", "RED DEAD 2", "SNIPER ELITE 5", "STRONGHOLD", "TRANSPORT FEVER 2",
+      "VICTORIA 3", "VIKING RISE", "WAR THUNDER", "SPACE MARINE 2", "WHERE WINDS MEET",
+      "WITCHER 3", "WORLD OF TANKS", "AOE II", "AMONG US", "BATTLEFIELD V", "DESTINY 2", "DIABLO IV"
     ];
     
     const fontSize = 13;
@@ -296,7 +243,7 @@
 
         const rand = Math.random();
         if (rand < 0.08) {
-          ctx.fillStyle = '#a855f7'; // Purple glow accent
+          ctx.fillStyle = '#a855f7'; // Purple glow
         } else if (rand < 0.15) {
           ctx.fillStyle = '#ff0033'; // Red error alert
         } else {
