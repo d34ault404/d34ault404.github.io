@@ -30,7 +30,7 @@
 
   <!-- Font Awesome Icons & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -47,8 +47,9 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px;
-      overflow: hidden;
+      padding: 24px 20px;
+      overflow-x: hidden;
+      position: relative;
     }
 
     #rain-canvas {
@@ -58,7 +59,8 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.5;
+      opacity: 0.45;
+      pointer-events: none;
     }
 
     .container {
@@ -67,30 +69,37 @@
       text-align: center;
       z-index: 1;
       position: relative;
+      background: rgba(15, 15, 20, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 32px 24px;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     }
 
     .avatar-wrapper {
-      width: 100%;
-      max-width: 220px;
+      width: 120px;
+      height: 120px;
       margin: 0 auto 16px auto;
-      border-radius: 12px;
-      padding: 4px;
-      background: linear-gradient(135deg, #a855f7, rgba(168, 85, 247, 0.2));
-      box-shadow: 0 0 25px rgba(168, 85, 247, 0.45);
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #a855f7, rgba(168, 85, 247, 0.3));
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .avatar-wrapper:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(168, 85, 247, 0.75);
     }
 
     .avatar {
       width: 100%;
-      height: auto;
-      border-radius: 8px;
+      height: 100%;
+      border-radius: 50%;
       display: block;
-      object-fit: contain;
+      object-fit: cover;
     }
 
     h1 {
@@ -106,14 +115,14 @@
     .subtitle {
       color: #8a8a99;
       font-size: 0.95rem;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       font-weight: 500;
     }
 
     .links-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .link-card {
@@ -127,7 +136,7 @@
       -webkit-backdrop-filter: blur(12px);
       color: #ffffff;
       text-decoration: none;
-      padding: 16px 20px;
+      padding: 14px 20px;
       border-radius: 12px;
       font-weight: 600;
       font-size: 1.05rem;
@@ -144,8 +153,48 @@
     .link-card.discord:hover { border-color: #5865f2; box-shadow: 0 0 20px rgba(88, 101, 242, 0.4); background: rgba(88, 101, 242, 0.15); transform: translateY(-3px); }
     .link-card.steam:hover { border-color: #ffffff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.12); transform: translateY(-3px); }
 
+    /* Games Showcase Section */
+    .games-container {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .games-title {
+      font-size: 0.8rem;
+      color: #a855f7;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .games-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .game-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: #d4d4d8;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .game-tag:hover {
+      border-color: #a855f7;
+      color: #ffffff;
+      background: rgba(168, 85, 247, 0.15);
+    }
+
     footer {
-      margin-top: 36px;
+      margin-top: 28px;
       font-size: 0.8rem;
       color: #555566;
       letter-spacing: 1px;
@@ -165,25 +214,42 @@
     <p class="subtitle">Content Creator & Streamer</p>
 
     <div class="links-wrapper">
-      <a href="https://www.twitch.tv/d34ault404" target="_blank" class="link-card twitch">
+      <a href="https://www.twitch.tv/d34ault404" target="_blank" rel="noopener noreferrer" class="link-card twitch">
         <i class="fa-brands fa-twitch"></i> Twitch
       </a>
 
-      <a href="https://youtube.com/@d34ault404" target="_blank" class="link-card youtube">
+      <a href="https://youtube.com/@d34ault404" target="_blank" rel="noopener noreferrer" class="link-card youtube">
         <i class="fa-brands fa-youtube"></i> YouTube
       </a>
 
-      <a href="https://www.tiktok.com/@d34ault404" target="_blank" class="link-card tiktok">
+      <a href="https://www.tiktok.com/@d34ault404" target="_blank" rel="noopener noreferrer" class="link-card tiktok">
         <i class="fa-brands fa-tiktok"></i> TikTok
       </a>
 
-      <a href="https://discord.gg/89XEFrEqr" target="_blank" class="link-card discord">
+      <a href="https://discord.gg/89XEFrEqr" target="_blank" rel="noopener noreferrer" class="link-card discord">
         <i class="fa-brands fa-discord"></i> Discord Community
       </a>
 
-      <a href="https://steamcommunity.com/profiles/76561198350190349/" target="_blank" class="link-card steam">
+      <a href="https://steamcommunity.com/profiles/76561198350190349/" target="_blank" rel="noopener noreferrer" class="link-card steam">
         <i class="fa-brands fa-steam"></i> Steam Profile
       </a>
+    </div>
+
+    <!-- Featured Games Section -->
+    <div class="games-container">
+      <div class="games-title">Featured Games</div>
+      <div class="games-tags">
+        <span class="game-tag">PUBG</span>
+        <span class="game-tag">Elden Ring</span>
+        <span class="game-tag">DayZ</span>
+        <span class="game-tag">Red Dead II</span>
+        <span class="game-tag">The Witcher 3</span>
+        <span class="game-tag">Dota 2</span>
+        <span class="game-tag">Ghost of Tsushima</span>
+        <span class="game-tag">Once Human</span>
+        <span class="game-tag">GTA V</span>
+        <span class="game-tag">God of War</span>
+      </div>
     </div>
 
     <footer>
@@ -202,9 +268,15 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const words = ["404", "ERROR", "DEFAULT", "D34AULT", "01", "404", "FAIL", "SYSTEM", "GLITCH"];
-    const fontSize = 14;
-    const columns = Math.floor(window.innerWidth / 30);
+    // Rain word pool including glitch terms and your favorite games
+    const words = [
+      "404", "ERROR", "DEFAULT", "D34AULT", "01", "FAIL", "SYSTEM", "GLITCH",
+      "PUBG", "ELDEN RING", "DAYZ", "RED DEAD", "WITCHER 3", "DOTA 2", 
+      "TSUSHIMA", "ONCE HUMAN", "GTA V", "GOD OF WAR", "CITIES SKYLINES"
+    ];
+    
+    const fontSize = 13;
+    const columns = Math.floor(window.innerWidth / 32);
 
     const drops = [];
     for (let x = 0; x < columns; x++) {
@@ -219,13 +291,16 @@
 
       for (let i = 0; i < drops.length; i++) {
         const text = words[Math.floor(Math.random() * words.length)];
-        const x = i * 30;
+        const x = i * 32;
         const y = drops[i] * fontSize;
 
-        if (Math.random() < 0.05) {
-          ctx.fillStyle = '#ff0033';
+        const rand = Math.random();
+        if (rand < 0.08) {
+          ctx.fillStyle = '#a855f7'; // Purple glow accent
+        } else if (rand < 0.15) {
+          ctx.fillStyle = '#ff0033'; // Red error alert
         } else {
-          ctx.fillStyle = '#00ff66';
+          ctx.fillStyle = '#00ff66'; // Matrix green
         }
 
         ctx.fillText(text, x, y);
