@@ -131,16 +131,14 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      background: rgba(20, 20, 25, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       color: #ffffff;
       text-decoration: none;
       padding: 14px 20px;
       border-radius: 12px;
       font-weight: 600;
       font-size: 1.05rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -148,26 +146,45 @@
       font-size: 1.3rem;
     }
 
-    /* Glow highlight for primary platform */
-    .link-card.primary-hub {
-      border-color: rgba(145, 70, 255, 0.4);
-      background: rgba(145, 70, 255, 0.1);
+    /* Static Resting Glows */
+    .link-card.twitch {
+      border: 1px solid rgba(145, 70, 255, 0.4);
+      background: rgba(145, 70, 255, 0.12);
       box-shadow: 0 0 15px rgba(145, 70, 255, 0.25);
-      animation: pulseGlow 3s infinite alternate;
+    }
+    .link-card.youtube {
+      border: 1px solid rgba(255, 0, 0, 0.4);
+      background: rgba(255, 0, 0, 0.12);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.25);
+    }
+    .link-card.tiktok {
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      background: rgba(0, 242, 254, 0.12);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+    }
+    .link-card.kick {
+      border: 1px solid rgba(83, 252, 24, 0.4);
+      background: rgba(83, 252, 24, 0.12);
+      box-shadow: 0 0 15px rgba(83, 252, 24, 0.25);
+    }
+    .link-card.steam {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    }
+    .link-card.discord {
+      border: 1px solid rgba(88, 101, 242, 0.4);
+      background: rgba(88, 101, 242, 0.12);
+      box-shadow: 0 0 15px rgba(88, 101, 242, 0.25);
     }
 
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 12px rgba(145, 70, 255, 0.2); }
-      100% { box-shadow: 0 0 25px rgba(145, 70, 255, 0.5); }
-    }
-
-    /* Platform Hover Styling */
-    .link-card.twitch:hover { border-color: #9146ff; box-shadow: 0 0 20px rgba(145, 70, 255, 0.4); background: rgba(145, 70, 255, 0.18); transform: translateY(-3px); }
-    .link-card.youtube:hover { border-color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); background: rgba(255, 0, 0, 0.15); transform: translateY(-3px); }
-    .link-card.tiktok:hover { border-color: #00f2fe; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); background: rgba(0, 242, 254, 0.15); transform: translateY(-3px); }
-    .link-card.kick:hover { border-color: #53fc18; box-shadow: 0 0 20px rgba(83, 252, 24, 0.4); background: rgba(83, 252, 24, 0.15); transform: translateY(-3px); color: #ffffff; }
-    .link-card.steam:hover { border-color: #ffffff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.12); transform: translateY(-3px); }
-    .link-card.discord:hover { border-color: #5865f2; box-shadow: 0 0 20px rgba(88, 101, 242, 0.4); background: rgba(88, 101, 242, 0.15); transform: translateY(-3px); }
+    /* Active Hover States */
+    .link-card.twitch:hover { border-color: #9146ff; box-shadow: 0 0 28px rgba(145, 70, 255, 0.6); background: rgba(145, 70, 255, 0.25); transform: translateY(-3px); }
+    .link-card.youtube:hover { border-color: #ff0000; box-shadow: 0 0 28px rgba(255, 0, 0, 0.6); background: rgba(255, 0, 0, 0.25); transform: translateY(-3px); }
+    .link-card.tiktok:hover { border-color: #00f2fe; box-shadow: 0 0 28px rgba(0, 242, 254, 0.6); background: rgba(0, 242, 254, 0.25); transform: translateY(-3px); }
+    .link-card.kick:hover { border-color: #53fc18; box-shadow: 0 0 28px rgba(83, 252, 24, 0.6); background: rgba(83, 252, 24, 0.25); transform: translateY(-3px); }
+    .link-card.steam:hover { border-color: #ffffff; box-shadow: 0 0 28px rgba(255, 255, 255, 0.5); background: rgba(255, 255, 255, 0.2); transform: translateY(-3px); }
+    .link-card.discord:hover { border-color: #5865f2; box-shadow: 0 0 28px rgba(88, 101, 242, 0.6); background: rgba(88, 101, 242, 0.25); transform: translateY(-3px); }
 
     footer {
       margin-top: 32px;
@@ -190,7 +207,7 @@
     <p class="subtitle">Content Creator & Streamer</p>
 
     <div class="links-wrapper">
-      <a href="https://www.twitch.tv/d34ault404" target="_blank" rel="noopener noreferrer" class="link-card twitch primary-hub">
+      <a href="https://www.twitch.tv/d34ault404" target="_blank" rel="noopener noreferrer" class="link-card twitch">
         <i class="fa-brands fa-twitch"></i> Twitch
       </a>
 
