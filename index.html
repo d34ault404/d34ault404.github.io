@@ -7,8 +7,8 @@
   <!-- Primary Meta Tags & SEO -->
   <title>D34AULT404 | Official Link Hub</title>
   <meta name="title" content="D34AULT404 | Official Link Hub">
-  <meta name="description" content="Welcome to the official link hub for D34AULT404. Connect across Twitch, YouTube, TikTok, Steam, and the Discord community.">
-  <meta name="keywords" content="D34AULT404, Streamer, Content Creator, Twitch, YouTube, TikTok, Discord, Gaming">
+  <meta name="description" content="Welcome to the official link hub for D34AULT404. Connect across Kick, Twitch, YouTube, TikTok, Steam, and the Discord community.">
+  <meta name="keywords" content="D34AULT404, Streamer, Content Creator, Kick, Twitch, YouTube, TikTok, Discord, Gaming">
   <meta name="author" content="D34AULT404">
   <meta name="robots" content="index, follow">
 
@@ -17,7 +17,7 @@
   <meta property="og:url" content="https://d34ault404.github.io/">
   <meta property="og:site_name" content="D34AULT404">
   <meta property="og:title" content="D34AULT404 | Official Link Hub">
-  <meta property="og:description" content="Connect with D34AULT404 across Twitch, YouTube, TikTok, Steam, and Discord!">
+  <meta property="og:description" content="Connect with D34AULT404 across Kick, Twitch, YouTube, TikTok, Steam, and Discord!">
   <meta property="og:image" content="https://d34ault404.github.io/banner.png">
   <meta property="og:theme-color" content="#a855f7">
 
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://d34ault404.github.io/">
   <meta name="twitter:title" content="D34AULT404 | Official Link Hub">
-  <meta name="twitter:description" content="Connect with D34AULT404 across Twitch, YouTube, TikTok, Steam, and Discord!">
+  <meta name="twitter:description" content="Connect with D34AULT404 across Kick, Twitch, YouTube, TikTok, Steam, and Discord!">
   <meta name="twitter:image" content="https://d34ault404.github.io/banner.png">
 
   <!-- Font Awesome Icons & Google Fonts -->
@@ -147,6 +147,8 @@
       font-size: 1.3rem;
     }
 
+    /* Platform Hover Styling */
+    .link-card.kick:hover { border-color: #53fc18; box-shadow: 0 0 20px rgba(83, 252, 24, 0.4); background: rgba(83, 252, 24, 0.15); transform: translateY(-3px); color: #ffffff; }
     .link-card.twitch:hover { border-color: #9146ff; box-shadow: 0 0 20px rgba(145, 70, 255, 0.4); background: rgba(145, 70, 255, 0.15); transform: translateY(-3px); }
     .link-card.youtube:hover { border-color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); background: rgba(255, 0, 0, 0.15); transform: translateY(-3px); }
     .link-card.tiktok:hover { border-color: #00f2fe; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); background: rgba(0, 242, 254, 0.15); transform: translateY(-3px); }
@@ -174,6 +176,10 @@
     <p class="subtitle">Content Creator & Streamer</p>
 
     <div class="links-wrapper">
+      <a href="https://kick.com/d34ault" target="_blank" rel="noopener noreferrer" class="link-card kick">
+        <i class="fa-solid fa-bolt"></i> Kick
+      </a>
+
       <a href="https://www.twitch.tv/d34ault404" target="_blank" rel="noopener noreferrer" class="link-card twitch">
         <i class="fa-brands fa-twitch"></i> Twitch
       </a>
@@ -211,9 +217,9 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Exact word pool taking titles directly from your Steam library list
+    // Steam games & glitch text array
     const words = [
-      "404", "ERROR", "DEFAULT", "D34AULT", "01", "FAIL", "SYSTEM", "GLITCH",
+      "404", "ERROR", "DEFAULT", "D34AULT", "01", "FAIL", "SYSTEM", "GLITCH", "KICK",
       "CS2", "DOTA 2", "THE ISLE", "TLOU II", "PUBG", "AC VALHALLA",
       "CALL OF DUTY", "CITIES SKYLINES II", "DAYZ", "ELDEN RING", "FINAL FANTASY XVI",
       "GHOST OF TSUSHIMA", "GTA V", "GUILD WARS 2", "TLOU PART I", "ONCE HUMAN",
@@ -246,6 +252,8 @@
           ctx.fillStyle = '#a855f7'; // Purple glow
         } else if (rand < 0.15) {
           ctx.fillStyle = '#ff0033'; // Red error alert
+        } else if (rand < 0.22) {
+          ctx.fillStyle = '#53fc18'; // Kick neon green
         } else {
           ctx.fillStyle = '#00ff66'; // Matrix green
         }
